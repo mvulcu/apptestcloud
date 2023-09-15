@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+  <title>Image Upload</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Photo Web App</h1>
+    
+    <h2>Image List:</h2>
+    <ul>
+      {% for image_url in image_urls %}
+        <li><img src="{{ image_url }}" alt="Image" class="thumbnail"></li>
+      {% endfor %}
+    </ul>
+
+    <h2>Image Upload:</h2>
+    <form class="upload-form" method="POST" action="/upload" enctype="multipart/form-data">
+      <label for="file-upload" class="custom-file-upload">
+        Choose File
+      </label>
+      <input id="file-upload" type="file" name="file">
+      <button type="submit" class="upload-button">Upload</button>
+    </form>
+  </div>
+</body>
+</html>
